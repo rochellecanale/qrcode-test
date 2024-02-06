@@ -41,7 +41,7 @@ const QRCodeReader = () => {
 			{
 				scanResult 
 				? <div>Success: { scanResult }</div>
-				: <div id="reader" className='w-[200px] h-[200px]'></div>
+				: <div id="reader" className='w-[250px] h-[250px] bg-red-500 p-5'></div>
 			}
 
 		</div>
