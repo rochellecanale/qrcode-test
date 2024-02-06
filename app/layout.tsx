@@ -17,17 +17,19 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className='flex flex-col min-h-screen' suppressHydrationWarning={true}>
-				<div className="max-w-[480px] border-2 p-5 mx-auto flex-grow flex flex-col">
-					<div className="flex-grow">
-						<div className="container mx-auto">
-							{children}
+				<div className="max-w-[480px] border-2 px-5 mx-auto">
+					<div className="mobile-footer-container">
+						<div className="mobile-footer-content">
+							<div className="container mx-auto">
+								{ children }
+							</div>
 						</div>
+						<footer className='bg-gray-500'>
+							<div className="container mx-auto py-4">
+								<p className="text-center">2024 &copy; All Rights Reserved.</p>
+							</div>
+						</footer>
 					</div>
-					<footer className='bg-gray-500'>
-						<div className="container mx-auto py-4">
-							<p className="text-center">20214 &copy; All Rights Reserved.</p>
-						</div>
-					</footer>
 				</div>
 			</body>
 		</html>
