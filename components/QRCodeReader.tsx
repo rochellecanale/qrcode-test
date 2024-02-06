@@ -10,23 +10,28 @@ const QRCodeReader = () => {
 
 		const scanner = new Html5QrcodeScanner('reader', {
 			qrbox: {
-				width: 100,
-				height: 100
+				width: 250,
+				height: 250
 			},
 			fps: 5,
 		}, false)
+	
 
-		const success = (result: string) => {
+		const onScanSuccess = (decodedText: any, decodedResult: any) => {
 			scanner.clear()
-			setScanResult(result)
+			setScanResult(decodedResult)
+			console.log(`Scan result: ${decodedText}`, decodedResult);
 		}
 
-		const error = (err: string) => {
-			console.warn(err)
+		const onScanError = (errorMessage: string) => {
+			console.warn(errorMessage)
 		}
 
-		scanner.render(success, error)
-		
+		scanner.render(onScanSuccess, onScanError)
+
+		console.log('init...')
+		console.log(scanner)
+
 	}, [])
 
 	return (
@@ -36,7 +41,7 @@ const QRCodeReader = () => {
 			{
 				scanResult 
 				? <div>Success: { scanResult }</div>
-				: <div id="reader"></div>
+				: <div id="reader" className='w-[200px] h-[200px]'></div>
 			}
 
 		</div>
